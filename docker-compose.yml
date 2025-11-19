@@ -1,0 +1,19 @@
+version: '3.8'
+
+services:
+  postgres:
+    image: postgres:16-alpine
+    container_name: witcher-postgres
+    environment:
+      POSTGRES_DB: witcher_db
+      POSTGRES_USER: witcher_user
+      POSTGRES_PASSWORD: Team_Witcher_Dev!2025
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+      - ./init-scripts:/docker-entrypoint-initdb.d
+    restart: unless-stopped
+
+volumes:
+  postgres_data:
