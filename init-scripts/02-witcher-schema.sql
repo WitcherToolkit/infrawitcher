@@ -3,7 +3,33 @@
 -- ============================================
 
 -- ============================================
--- TABLES DE RÉFÉRENCE (Magies, Compétences, etc.)
+-- NETTOYAGE PRÉALABLE
+-- ============================================
+DROP TABLE IF EXISTS witcher.envoutement_personnage CASCADE;
+DROP TABLE IF EXISTS witcher.rituel_personnage CASCADE;
+DROP TABLE IF EXISTS witcher.magie_personnage CASCADE;
+DROP TABLE IF EXISTS witcher.competence_personnage CASCADE;
+DROP TABLE IF EXISTS witcher.reputation_personnalisee CASCADE;
+DROP TABLE IF EXISTS witcher.caracteristique_personnage CASCADE;
+DROP TABLE IF EXISTS witcher.inventaire CASCADE;
+DROP TABLE IF EXISTS witcher.personnage CASCADE;
+DROP TABLE IF EXISTS witcher.campagne CASCADE;
+DROP TABLE IF EXISTS witcher.competence_profession CASCADE;
+DROP TABLE IF EXISTS witcher.inventaire_wiki CASCADE;
+DROP TABLE IF EXISTS witcher.profession CASCADE;
+DROP TABLE IF EXISTS witcher.user_roles CASCADE;
+DROP TABLE IF EXISTS witcher.users CASCADE;
+DROP TABLE IF EXISTS witcher.reputation_wiki CASCADE;
+DROP TABLE IF EXISTS witcher.particularite CASCADE;
+DROP TABLE IF EXISTS witcher.race CASCADE;
+DROP TABLE IF EXISTS witcher.competence CASCADE;
+DROP TABLE IF EXISTS witcher.caracteristique CASCADE;
+DROP TABLE IF EXISTS witcher.envoutement CASCADE;
+DROP TABLE IF EXISTS witcher.rituel CASCADE;
+DROP TABLE IF EXISTS witcher.magie CASCADE;
+
+-- ============================================
+-- TABLES DE RÉFÉRENCE
 -- ============================================
 
 -- Table magie

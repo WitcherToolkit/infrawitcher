@@ -1,7 +1,8 @@
-version: '3.8'
-
 services:
-  postgres:
+  # -----------------------------
+  # Service Base de données (Postgres)
+  # -----------------------------
+  postgres-witcher:
     image: postgres:16-alpine
     container_name: witcher-postgres
     environment:
@@ -12,8 +13,25 @@ services:
       - "5432:5432"
     volumes:
       - postgres_data:/var/lib/postgresql/data
-      - ./init-scripts:/docker-entrypoint-initdb.d
+      # Le dossier pour vos scripts de création de schémas (optionnel si le dossier n'existe pas encore)
+      - ./init-scripts:/docker-entrypoint-initdb.d 
     restart: unless-stopped
+
+  # -----------------------------
+  # Service Interface Graphique (pgAdmin)
+  # -----------------------------
+  pgadmin:
+    image: dpage/pgadmin4
+    container_name: witcher-pgadmin
+    restart: always
+    environment:
+      PGADMIN_DEFAULT_EMAIL: admin@witcher.com
+      PGADMIN_DEFAULT_PASSWORD: admin
+    ports:
+      - "5050:80"
+    depends_on:
+      # CORRECTION ICI : Doit correspondre au nom du service ligne 5
+      - postgres-witcher 
 
 volumes:
   postgres_data:
